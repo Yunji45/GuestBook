@@ -2,7 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\LoginController;
-use App\Http\Controller\Backend\DashboardController;
+use App\Http\Controllers\Backend\DashboardController;
+use App\Http\Controllers\Backend\TamuController;
+use App\Http\Controllers\Backend\EventController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,10 +21,14 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::get('/login', [LoginController::class,'login'])->name('login');
-Route::post('/login-act',[LoginController::class,'act-login'])->name('proses.login');
+Route::post('/login-act',[LoginController::class,'actlogin'])->name('proses.login');
 Route::group(['middleware' => ['auth', 'role:admin']],function(){
-    Route::get('/home', [DashboardController::class,'index'])->name('dashboard');
+    Route::get('/home', [DashboardController::class,'index'])->name('home');
     Route::get('/logout',[LoginController::class,'logout'])->name('logout');
+    Route::get('/DataTamu',[TamuController::class,'index'])->name('datatamu');
 
+    Route::get('/DataEvent',[EventController::class,'index'])->name('dataevent');
+    Route::get('/TambahEvent',[EventController::class,'create'])->name('create.event');
+    Route::post('/save-event',[EventController::class,'store'])->name('uploads.store');
 });
 

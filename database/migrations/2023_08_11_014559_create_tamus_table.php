@@ -22,7 +22,8 @@ class CreateTamusTable extends Migration
             $table->string('phone')->nullable();
             $table->string('alamat')->nullable();
             $table->string('photo')->nullable();
-            $table->timestamps();
+            $table->enum('status',['confirm','unconfirm'])->default('unconfirm');
+            $table->timestamps();        
         });
     }
 

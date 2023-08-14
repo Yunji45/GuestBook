@@ -28,8 +28,8 @@ class LoginController extends Controller
         if(Auth::Attempt($data)){
             return redirect('/home');
         }else{
-            Sessiom::flash('error','Email atau Password is incorrect.');
-            return redirect('/');
+            Session::flash('error','Email atau Password is incorrect.');
+            return redirect('/login');
         }
     }
 

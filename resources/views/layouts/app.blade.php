@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
-    <title>{{ $title }}</title>
+    <title>{{$title}}</title>
 
     <!-- General CSS Files -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
@@ -47,17 +47,17 @@
         <div class="main-wrapper">
             <div class="navbar-bg"></div>
             <!-- Navbar -->
-            @include('layout.admin.navbar')
+            @include('layouts.navbar')
 
             <!-- Sidebar -->
-            @include('layout.admin.side')
+            @include('layouts.sidebar')
 
             <!-- Main Content -->
             <div class="main-content">
                 @yield('dashboard')
                 @yield('tabel')
             </div>
-            @include('layout.admin.footer')
+            @include('layouts.footer')
         </div>
     </div>
 

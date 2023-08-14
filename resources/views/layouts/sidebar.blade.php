@@ -20,26 +20,26 @@
             <li class="active">
                 <a class="nav-link" href="">
                     <i class="far fa-address-card"></i>
-                    <span>User</span>
+                    <span>Verifikasi Data</span>
                 </a>
             </li>
             <li class="active">
                 <a class="nav-link" href="">
                     <i class="far fa-folder-open"></i>
-                    <span>Barang</span>
+                    <span>Backup</span>
                 </a>
             </li>
             <li class="active">
-                <a class="nav-link" href="">
+                <a class="nav-link" href="{{route('dataevent')}}">
                     <i class="fas fa-plane"></i>
-                    <span>Lokasi</span>
+                    <span>Event</span>
                 </a>
             </li>
             @endif
             <li class="active">
-                <a class="nav-link" href="">
+                <a class="nav-link" href="{{route('datatamu')}}">
                     <i class="fas fa-chart-line"></i>
-                    <span>Pengiriman</span>
+                    <span>Data Tamu</span>
                 </a>
             </li>
 
@@ -47,7 +47,7 @@
 
         <div class="mt-4 mb-4 p-3 hide-sidebar-mini">
             <a
-                href=""
+                href="{{route('logout')}}"
                 class="btn btn-primary btn-lg btn-block btn-icon-split">
                 <i class="fas fa-rocket"></i>
                 Logout

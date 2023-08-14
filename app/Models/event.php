@@ -18,6 +18,6 @@ class event extends Model
 
     public function tamu()
     {
-        return $this->hasMany(tamu::class);
+        return $this->hasMany(Tamu::class);
     }
 }
