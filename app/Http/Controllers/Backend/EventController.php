@@ -55,7 +55,7 @@ class EventController extends Controller
                 $event->save();
     
                 Session::flash('success', 'Event Berhasil ditambah!');
-                return $event;
+                return redirect('/DataEvent');
             } catch (Exception $e) {
                 throw new Exception($e->getMessage());
             }
@@ -106,6 +106,8 @@ class EventController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $data = event::find($id);
+        $data ->delete();
+        return redirect('/DataEvent');
     }
 }

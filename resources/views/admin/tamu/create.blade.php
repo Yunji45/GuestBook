@@ -18,26 +18,48 @@
         <div class="row">
             <div class="col-12">
                 <div class="card">
-                    <form action="{{route('uploads.store')}}" method="post" enctype="multipart/form-data">
+                    <form action="{{route('save.tamu')}}" method="post" enctype="multipart/form-data">
                         @csrf
                         <div class="card-body">
                             <div class="form-group row mb-4">
-                                <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Nama Event</label>
+                                <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Nama</label>
                                 <div class="col-sm-12 col-md-7">
-                                    <img class="img-preview img-fluid mb-3 col-sm-2" alt="">
-                                    <input type="text" class="form-control" name="name_event" id="name_event">
+                                    <input type="text" class="form-control" name="name" id="name">
                                 </div>
                             </div>
                             <div class="form-group row mb-4">
-                                <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Lokasi</label>
+                                <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Email</label>
                                 <div class="col-sm-12 col-md-7">
-                                    <input type="text" class="form-control" name="lokasi" id="lokasi">
+                                    <input type="email" class="form-control" name="email" id="email">
+                                </div>
+                            </div>
+
+                            <div class="form-group row mb-4">
+                                <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Event</label>
+                                <div class="col-sm-12 col-md-7">
+                                    <select class="form-control">
+                                        @foreach($data as $item)
+                                        <option value="{{$item->id}}">{{$item->name_event}}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group row mb-4">
+                                <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">No.Telp</label>
+                                <div class="col-sm-12 col-md-7">
+                                    <input type="phone" class="form-control" name="phone" id="phone">
                                 </div>
                             </div>
                             <div class="form-group row mb-4">
                                 <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Upload Photo</label>
                                 <div class="col-sm-12 col-md-7">
                                     <input type="file" class="form-control" name="photo" id="photo" onchange="previewimage()">
+                                </div>
+                            </div>
+                            <div class="form-group row mb-4">
+                                <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Alamat</label>
+                                <div class="col-sm-12 col-md-7">
+                                    <input type="text" class="form-control" name="alamat" id="alamat">
                                 </div>
                             </div>
                             <div class="form-group row mb-4">

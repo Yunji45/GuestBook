@@ -34,7 +34,25 @@
                                     <th scope="col">Action</th>
                                 </tr>
                             </thead>
-                            <tbody></tbody>
+                            <tbody>
+                            @php
+                            $no =1;
+                            @endphp
+                            @foreach ($data as $item)
+                            <tr>
+                                <td>{{$no++}}</td>
+                                <td>{{$item->name_event}}</td>
+                                <td>{{$item->lokasi}}</td>
+                                <td><img src="{{asset('public/images/event/'. $item->photo)}}" alt="foto"></td>
+                                <td>
+                                    <a href="/event/ {{$item->id}} /destroy" 
+                                    onclick="return confirm('Yakin akan dihapus?')" 
+                                    class="btn btn-danger btn-sm"><i class="fas fa-trash-alt"></i>Hapus</a>
+                                </td>                        
+                            </tr>
+                            @endforeach
+
+                            </tbody>
                         </table>
 
                     </div>

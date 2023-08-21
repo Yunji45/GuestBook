@@ -19,7 +19,7 @@
                   <div class="card-body">
                     <div class="section-title">Tabel {{$title}}</div>
                     <div class="buttons">
-                      <a href="" class="btn btn-primary" >Tambah {{$title}}</a>
+                      <a href="{{route('create.tamu')}}" class="btn btn-primary" >Tambah {{$title}}</a>
                     </div>
                     <table class="table table-sm table-dark">
                       <thead>
@@ -30,6 +30,7 @@
                           <th scope="col">Email</th>
                           <th scope="col">Telp</th>
                           <th scope="col">Photo</th>
+                          <th scope="col">Status</th>
                           <th scope="col">Action</th>
                         </tr>
                       </thead>

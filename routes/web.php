@@ -22,13 +22,19 @@ Route::get('/', function () {
 });
 Route::get('/login', [LoginController::class,'login'])->name('login');
 Route::post('/login-act',[LoginController::class,'actlogin'])->name('proses.login');
+
 Route::group(['middleware' => ['auth', 'role:admin']],function(){
     Route::get('/home', [DashboardController::class,'index'])->name('home');
     Route::get('/logout',[LoginController::class,'logout'])->name('logout');
+
     Route::get('/DataTamu',[TamuController::class,'index'])->name('datatamu');
+    Route::get('/TambahTamu', [TamuController::class,'create'])->name('create.tamu');
+    Route::post('/Save-Tamu',[TamuController::class,'store'])->name('save.tamu');
+    Route::get('/Tamu/{id}/destroy',[TamuController::class,'destroy']);
 
     Route::get('/DataEvent',[EventController::class,'index'])->name('dataevent');
     Route::get('/TambahEvent',[EventController::class,'create'])->name('create.event');
     Route::post('/save-event',[EventController::class,'store'])->name('uploads.store');
+    Route::get('/event/{id}/destroy',[EventController::class,'destroy']);
 });
 
