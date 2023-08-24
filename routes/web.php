@@ -5,6 +5,7 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Backend\DashboardController;
 use App\Http\Controllers\Backend\TamuController;
 use App\Http\Controllers\Backend\EventController;
+use App\Http\Controllers\Backend\VerifikasiTamuController;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,5 +37,8 @@ Route::group(['middleware' => ['auth', 'role:admin']],function(){
     Route::get('/TambahEvent',[EventController::class,'create'])->name('create.event');
     Route::post('/save-event',[EventController::class,'store'])->name('uploads.store');
     Route::get('/event/{id}/destroy',[EventController::class,'destroy']);
+
+    Route::get('/VerifikasiData', [VerifikasiTamuController::class,'index'])->name('verifikasi.tamu');
+    Route::get('/VerifikasiData/{id}/verfikasi',[VerifikasiTamuController::class,'verifikasi']);
 });
 

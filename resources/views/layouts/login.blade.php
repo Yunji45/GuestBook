@@ -34,7 +34,7 @@
                     <div
                         class="col-12 col-sm-8 oxffset-sm-2 col-md-6 offset-md-3 col-lg-6 offset-lg-3 col-xl-4 offset-xl-4">
                         <div class="login-brand">
-                            <h1 class="text-primary">                            <img src="{{asset('stisla/dist/assets/img/JST-orange.png')}}" alt="Logo" widht="100" height="100">
+                            <h1 class="text-primary"><img src="{{asset('stisla/dist/assets/img/JST-orange.png')}}" alt="Logo" widht="100" height="100">
 Java<span class="text-danger">Tech</span></h1>
                         </div>
 

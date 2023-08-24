@@ -18,9 +18,6 @@
                 
                   <div class="card-body">
                     <div class="section-title">Tabel {{$title}}</div>
-                    <div class="buttons">
-                      <a href="{{route('create.tamu')}}" class="btn btn-primary" >Tambah {{$title}}</a>
-                    </div>
                     <table class="table table-sm table-dark">
                       <thead>
                         <tr>
@@ -46,10 +43,10 @@
                             <td>{{$item->status}}</td>
                             <td>
                                 <a
-                                    href="/event/ {{$item->id}} /destroy"
-                                    onclick="return confirm('Yakin akan dihapus?')"
-                                    class="btn btn-danger btn-sm">
-                                    <i class="fas fa-trash-alt"></i>Hapus</a>
+                                    href="/VerifikasiData/{{$item->id}}/verfikasi"
+                                    onclick="return confirm('Yakin akan Update Data?')"
+                                    class="btn btn-success btn-sm">
+                                    <i class="fas fa-trash-alt"></i>Verifikasi</a>
                             </td>
                         </tr>
                         @endforeach
