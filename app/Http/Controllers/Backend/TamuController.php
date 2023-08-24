@@ -14,8 +14,10 @@ class TamuController extends Controller
     public function index()
     {
         $title = 'Data Tamu';
+        $tes = Tamu::all();
         $data = Tamu::where('status','confirm')->get();
-        return view('admin.tamu.tamu',compact('title','data'));
+        return view('admin.tamu.tamu',compact('title','data','tes'));
+        // return $tes;
     }
     public function create()
     {
@@ -33,7 +35,7 @@ class TamuController extends Controller
                 $nama = time() . "_" . $image->getClientOriginalName();
                 $tujuan_upload = 'public/images/tamu';
                 $image->storeAs($tujuan_upload, $nama);
-
+                // $requestData["photo"]= '/storage'.$nama;
                 $event = new Tamu;
                 $event->event_id = $request->input('event_id');
                 $event->name = $request->input('name');
@@ -51,13 +53,30 @@ class TamuController extends Controller
                 throw new Exception($e->getMessage());
             }
         } else {
-            return "No valid photo uploaded.";
+            return "ubah photo mu ke file png";
         }
     }
     public function destroy($id)
     {
         $data = Tamu::find($id);
         $data ->delete();
-        return $data;
+        return redirect ('/DataTamu');
+    }
+
+    public function edit($id)
+    {
+        $title = 'Edit Data Tamu';
+        $data = event::all();
+        return view ('admin.tamu.edit',compact('title','data'));
+    }
+    public function update(Request $request)
+    {
+
+    }
+
+    public function view($id)
+    {
+        $title = 'View Tamu';
+        return view ('admin.tamu.view',compact('title'));
     }
 }

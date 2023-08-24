@@ -21,7 +21,7 @@
                     <div class="buttons">
                       <a href="{{route('create.tamu')}}" class="btn btn-primary" >Tambah {{$title}}</a>
                     </div>
-                    <table class="table table-sm table-dark">
+                    <table class="table table-sm table-white">
                       <thead>
                         <tr>
                           <th scope="col">No</th>
@@ -42,15 +42,17 @@
                             <td>{{$item->name}}</td>
                             <td>{{$item->email}}</td>
                             <td>{{$item->phone}}</td>
-                            <td><img src="{{asset('public/images/tamu/'. $item->photo)}}" alt="foto"></td>
+                            <td><img src="{{ asset('/storage/public/images/tamu/' . $item->photo) }}" alt="foto" widht="50" height="30"></td>
                             <td>{{$item->status}}</td>
                             <td>
-                                <a
-                                    href="/event/ {{$item->id}} /destroy"
-                                    onclick="return confirm('Yakin akan dihapus?')"
-                                    class="btn btn-danger btn-sm">
-                                    <i class="fas fa-trash-alt"></i>Hapus</a>
+                                <div class="btn-group mb-3" role="group" aria-label="Basic example">
+                                    <a href="/Tamu/ {{$item->id}} /destroy" class="btn btn-danger" onclick="return confirm('Yakin akan dihapus?')"><i class="fas fa-trash-alt"></i></a>
+                                    <a href="/Tamu/ {{$item->id}} /edit" class="btn btn-warning"><i class="far fa-edit"></i></a>
+                                    <a  class="btn btn-success"><i class="fas fa-eye"></i></a>
+                                </div>
+                                    
                             </td>
+                            
                         </tr>
                         @endforeach
                       </tbody>

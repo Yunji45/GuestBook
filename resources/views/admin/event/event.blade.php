@@ -24,7 +24,7 @@
                             <a href="{{route('create.event')}}" class="btn btn-primary" >Tambah
                                 {{$title}}</a>
                         </div>
-                        <table class="table table-sm table-dark">
+                        <table class="table table-sm table-white">
                             <thead>
                                 <tr>
                                     <th scope="col">No</th>

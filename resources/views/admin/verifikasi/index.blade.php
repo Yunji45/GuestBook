@@ -18,7 +18,7 @@
                 
                   <div class="card-body">
                     <div class="section-title">Tabel {{$title}}</div>
-                    <table class="table table-sm table-dark">
+                    <table class="table table-sm table-white">
                       <thead>
                         <tr>
                           <th scope="col">No</th>
@@ -34,19 +34,19 @@
                       <tbody>
                         @php $no =1; @endphp @foreach ($data as $item)
                         <tr>
-                            <td>{{$no++}}</td>
+                            <td>{{$no++}}.</td>
                             <td>{{$item->event->name_event}}</td>
                             <td>{{$item->name}}</td>
                             <td>{{$item->email}}</td>
                             <td>{{$item->phone}}</td>
-                            <td><img src="{{asset('public/images/tamu/'. $item->photo)}}" alt="foto"></td>
+                            <td><img src="{{ asset('/storage/public/images/tamu/' . $item->photo) }}" alt="foto" widht="50" height="30"></td>
                             <td>{{$item->status}}</td>
                             <td>
                                 <a
                                     href="/VerifikasiData/{{$item->id}}/verfikasi"
                                     onclick="return confirm('Yakin akan Update Data?')"
                                     class="btn btn-success btn-sm">
-                                    <i class="fas fa-trash-alt"></i>Verifikasi</a>
+                                    <i class="fas fas fa-unlock-alt"></i><Strong>Verifikasi</Strong></a>
                             </td>
                         </tr>
                         @endforeach
