@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Tamu;
 use App\Models\event;
+use ErrorException;
+use Illuminate\Support\Facades\Session;
 
 class TamuController extends Controller
 {
@@ -18,7 +20,7 @@ class TamuController extends Controller
     public function create()
     {
         $title = 'Data Tamu';
-        $data = event::with('tamu')->get();
+        $data = event::all();
         return view ('admin.tamu.create',compact('title','data'));
         // return $data;
     }
@@ -28,23 +30,23 @@ class TamuController extends Controller
         if ($request->hasFile('photo') && $request->file('photo')->isValid()) {
             try {
                 $image = $request->file('photo');
-                $nama_image = time() . "_" . $image->getClientOriginalName();
+                $nama = time() . "_" . $image->getClientOriginalName();
                 $tujuan_upload = 'public/images/tamu';
-                $image->storeAs($tujuan_upload, $nama_image);
+                $image->storeAs($tujuan_upload, $nama);
 
-                $data = event::with('tamu')->get();
                 $event = new Tamu;
-                $event->event_id = $data;
+                $event->event_id = $request->input('event_id');
                 $event->name = $request->input('name');
                 $event->email = $request->input('email');
                 $event->phone = $request->input('phone');
                 $event->alamat = $request->input('alamat');
-                $event->status = $request->input('status');
-                $event->photo = $nama_image;
+                $event->photo = $nama;
+                $event->status = 'unconfirm';
                 $event->save();
-    
-                Session::flash('success', 'Event Berhasil ditambah!');
-                return redirect('/DataEvent');
+                
+                Session::flash('success', 'Data Tamu Berhasil ditambah!');
+                return redirect('/DataTamu');
+                // return $event;
             } catch (Exception $e) {
                 throw new Exception($e->getMessage());
             }
@@ -54,6 +56,8 @@ class TamuController extends Controller
     }
     public function destroy($id)
     {
-
+        $data = Tamu::find($id);
+        $data ->delete();
+        return $data;
     }
 }

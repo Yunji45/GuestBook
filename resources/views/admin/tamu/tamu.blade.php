@@ -35,6 +35,25 @@
                         </tr>
                       </thead>
                       <tbody>
+                        @php $no =1; @endphp @foreach ($data as $item)
+                        <tr>
+                            <td>{{$no++}}</td>
+                            <td>{{$item->event->name_event}}</td>
+                            <td>{{$item->name}}</td>
+                            <td>{{$item->email}}</td>
+                            <td>{{$item->phone}}</td>
+                            <td>{{$item->photo}}</td>
+                            <td>{{$item->status}}</td>
+                            <td><img src="{{asset('public/images/tamu/'. $item->photo)}}" alt="foto"></td>
+                            <td>
+                                <a
+                                    href="/event/ {{$item->id}} /destroy"
+                                    onclick="return confirm('Yakin akan dihapus?')"
+                                    class="btn btn-danger btn-sm">
+                                    <i class="fas fa-trash-alt"></i>Hapus</a>
+                            </td>
+                        </tr>
+                        @endforeach
                       </tbody>
                     </table>
                    
